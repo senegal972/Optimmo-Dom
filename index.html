@@ -267,12 +267,27 @@
       pointer-events: none;
       z-index: 2;
     }
+    /* ════════════════════════════════════════════════════════════════
+       BIBLIOTHÈQUE DE FONDS D'ÉCRAN (hero page d'accueil)
+       Chaque fond est sauvegardé et nommé. Pour changer le fond affiché,
+       il suffit de modifier la valeur de --fond-actif ci-dessous.
+
+       • Fond n°1 — maison créole / volcan (image Unsplash d'origine)
+       • Fond n°2 — maison créole authentique + Montagne Pelée +
+                    Saint-Pierre & la mer en contrebas  (assets/fonds/fond-ecran-2.jpg)
+       ════════════════════════════════════════════════════════════════ */
+    :root {
+      --fond-ecran-1: url('https://images.unsplash.com/photo-1449844908441-8829872d2607?w=1920&q=85');
+      --fond-ecran-2: url('assets/fonds/fond-ecran-2.jpg');
+      /* ↓↓↓ Fond actuellement affiché — basculer sur --fond-ecran-2 quand l'image est en place ↓↓↓ */
+      --fond-actif: var(--fond-ecran-1);
+    }
     .hero-bg {
       position: absolute;
       inset: 0;
       background:
         linear-gradient(180deg, rgba(7,15,26,0.45) 0%, rgba(7,15,26,0.18) 38%, rgba(7,15,26,0.72) 100%),
-        url('https://images.unsplash.com/photo-1449844908441-8829872d2607?w=1920&q=85') center/cover no-repeat;
+        var(--fond-actif) center/cover no-repeat;
       transform: scale(1.06);
       transition: transform 8s ease;
     }
@@ -1495,7 +1510,7 @@
             et opérationnelle (dénouement successoral, développement foncier, construction)
             lui permet d'offrir un conseil global, précis et sur-mesure.
           </p>
-          <a href="/about" class="about-link">Notre philosophie</a>
+          <span class="about-link">Notre philosophie</span>
         </div>
       </div>
     </div>
@@ -1585,7 +1600,7 @@
             Une connaissance fine des marchés martiniquais et guadeloupéen :
             leurs dynamiques, leurs spécificités juridiques, leurs opportunités distinctes.
           </p>
-          <a href="/territoires" class="btn-gold">Explorer les marchés</a>
+          <a href="/contact" class="btn-gold">Échanger avec un expert</a>
         </div>
         <div class="territory-cards reveal">
           <div class="territory-card">
@@ -1631,9 +1646,9 @@
             <li>Bibliothèque de documents professionnels partagés</li>
             <li>Accès aux catalogues Sextant des conseillers (plan Premium)</li>
           </ul>
-          <a href="/espace-partenaires" class="btn-gold" style="margin-top:36px">
+          <span class="btn-gold" style="margin-top:36px;cursor:default">
             Accéder à l'espace partenaires
-          </a>
+          </span>
         </div>
         <div class="reveal">
           <div class="plans-grid">
